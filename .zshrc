@@ -107,6 +107,9 @@ export PATH=${JAVA_HOME}/bin:$PATH
 # rm alias
 alias rm="gio trash"
 
+# clear alias
+alias cl="clear"
+
 # Terminal proxy
 export http_proxy=http://localhost:12333
 export https_proxy=http://localhost:12333
