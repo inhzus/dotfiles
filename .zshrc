@@ -63,7 +63,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv)
+plugins=(git virtualenv z npm)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -171,3 +171,6 @@ elif type compctl &>/dev/null; then
   compctl -K _pm2_completion + -f + pm2
 fi
 ###-end-pm2-completion-###
+
+# include z.sh
+. ~/z.sh
