@@ -16,7 +16,7 @@ XPS 13 Ubuntu 18.04 LTS tools.
 
 - [Proxychains4](https://github.com/rofl0r/proxychains-ng)
 
-- [graphcp](https://github.com/hmgle/graftcp)
+- [graftcp](https://github.com/hmgle/graftcp)
 
 ### Tool
 
