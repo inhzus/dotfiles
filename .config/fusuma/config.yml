@@ -1,1 +1,27 @@
-/home/suun/.config/fusuma/config.yml
+swipe:
+  3:
+    left:
+      command: 'xdotool key ctrl+shift+Tab'
+      threshold: 0.05
+    right:
+      command: 'xdotool key ctrl+Tab'
+      threshold: 0.05
+    up:
+      command: 'xdotool key ctrl+w'
+    down:
+      command: 'xdotool key F5'
+  4:
+    up:
+      command: 'xdotool key alt+F4'
+    down:
+      command: "xdotool key super+d"
+pinch:
+  2:
+    in:
+      command: 'xdotool key ctrl+plus'
+    out:
+      command: 'xdotool key ctrl+minus'
+
+threshold:
+  swipe: 0.2
+  pinch: 0.2

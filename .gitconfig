@@ -1,1 +1,8 @@
-/home/suun/.gitconfig
+[user]
+	name = Zhi Sun
+	email = inhzus@gmail.com
+[credential]
+	helper = store
+[core]
+	editor = vim
+	autocrlf = false
