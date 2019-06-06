@@ -121,8 +121,11 @@ alias pr="proxychains4"
 # graftcp
 alias gr="graftcp"
 
+# clash web
+alias clash-web="cd ~/repos/clash-dashboard && npm start"
+
 # curl p.nju.edu.cn
-alias net="sh /home/suun/scripts/net.sh"
+alias net="sh ~/scripts/net.sh"
 
 # zsh configuration
 alias reload="source ~/.zshrc"
