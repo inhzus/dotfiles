@@ -79,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
+export LANGUAGE=en_US.UTF-8
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -104,10 +104,10 @@ export DEFAULT_USER="suun"
 export PATH=/home/suun/.local/bin:$PATH
 
 # JAVA configuration
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
+#export JRE_HOME=${JAVA_HOME}/jre
+#export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+#export PATH=${JAVA_HOME}/bin:$PATH
 
 # rm alias
 alias rm="gio trash"
@@ -125,7 +125,7 @@ alias gr="graftcp"
 alias clash-web="cd ~/repos/clash-dashboard && npm start"
 
 # curl p.nju.edu.cn
-alias net="sh ~/scripts/net.sh"
+alias net="sh ~/scripts/net.sh && pm2 restart clash"
 
 # zsh configuration
 alias reload="source ~/.zshrc"
@@ -140,6 +140,9 @@ export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:$PATH
 
 # Maven path
 export PATH=/usr/lib/maven/apache-maven-3.6.1/bin:$PATH
+
+# Ruby
+export PATH=~/.gem/ruby/2.6.0/bin:$PATH
 
 # go bin
 export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
@@ -203,3 +206,7 @@ bindkey '^ ' autosuggest-accept
 
 # OPAM configuration
 # . /home/suun/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
