@@ -125,7 +125,7 @@ alias gr="graftcp"
 alias clash-web="cd ~/repos/clash-dashboard && npm start"
 
 # curl p.nju.edu.cn
-alias net="sh ~/scripts/net.sh && pm2 restart clash"
+alias net="sh ~/scripts/net.sh && pm2 restart clash -a"
 
 # zsh configuration
 alias reload="source ~/.zshrc"
