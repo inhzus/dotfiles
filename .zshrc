@@ -207,6 +207,7 @@ bindkey '^ ' autosuggest-accept
 # OPAM configuration
 # . /home/suun/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+alias dual_screen="xrandr --output eDP1 --left-of DP1 --auto &&
+xrandr --output DP1 --left-of eDP1 --auto"
+
+# screenfetch | lolcat
