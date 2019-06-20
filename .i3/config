@@ -45,10 +45,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -421,7 +421,7 @@ mode "$mode_gaps_outer" {
 # Following is my own custom configuration
 
 # exec startup
-exec fcitx
+exec --no-startup-id fcitx
 exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
@@ -431,3 +431,7 @@ bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
 bindsym Print --release exec /usr/bin/flameshot gui
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh raise"
+bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh lower"
+bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh toggle"
