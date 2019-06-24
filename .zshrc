@@ -151,7 +151,7 @@ export GOPROXY=https://goproxy.io
 
 # scripts
 
-export PATH=/home/scripts/:$PATH
+export PATH=$HOME/scripts/:$PATH
 
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
