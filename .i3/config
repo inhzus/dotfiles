@@ -433,6 +433,8 @@ bindsym $mod+Shift+less move workspace to output left
 
 bindsym Print --release exec /usr/bin/flameshot gui
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh raise"
-bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh lower"
-bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5-"
+bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
+bindsym XF86MonBrightnessUp exec "sh $HOME/scripts/brightness.sh 5"
+bindsym XF86MonBrightnessDown exec "sh $HOME/scripts/brightness.sh -5"
