@@ -425,7 +425,7 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id fcitx
 exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
-exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
+#exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
 # move focused workspace between monitors
 bindsym $mod+Shift+greater move workspace to output right
