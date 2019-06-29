@@ -120,6 +120,7 @@ alias pr="proxychains4"
 
 # graftcp
 alias gr="graftcp"
+alias grl="graftcp-local"
 
 # clash web
 alias clash-web="cd ~/repos/clash-dashboard && npm start"
