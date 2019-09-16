@@ -68,6 +68,9 @@ ZSH_THEME="ys-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+EDITOR=vim
+VISUAL=vim
+
 plugins=(git virtualenv z npm docker docker-compose encode64 extract)
 
 
@@ -104,10 +107,10 @@ export DEFAULT_USER="suun"
 export PATH=/home/suun/.local/bin:$PATH
 
 # JAVA configuration
-#export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
-#export JRE_HOME=${JAVA_HOME}/jre
-#export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-#export PATH=${JAVA_HOME}/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
 
 # rm alias
 alias rm="gio trash"
@@ -147,8 +150,8 @@ export PATH=~/.gem/ruby/2.6.0/bin:$PATH
 
 # go bin
 export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
-export GO111MODULE=on
-export GOPROXY=https://goproxy.io
+# export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
 
 # scripts
 
