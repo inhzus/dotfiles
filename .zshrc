@@ -121,6 +121,9 @@ alias cl="clear"
 # proxychains alias
 alias pr="proxychains4"
 
+# setproxy.sh
+alias sp="setproxy.sh"
+
 # graftcp
 alias gr="graftcp"
 alias grl="graftcp-local"
