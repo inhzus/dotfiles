@@ -46,7 +46,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio --start
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
@@ -58,7 +58,7 @@ exec --no-startup-id pulseaudio
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec chromium
+bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 #bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -137,8 +137,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next_on_output
+bindsym $mod+Ctrl+Left workspace prev_on_output
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -190,7 +190,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
+# for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -424,6 +424,7 @@ mode "$mode_gaps_outer" {
 # exec startup
 exec --no-startup-id fcitx
 exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
+exec $HOME/scripts/auto-clash.sh
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
@@ -438,3 +439,4 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5-
 bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
 bindsym XF86MonBrightnessUp exec "sh $HOME/scripts/brightness.sh 5"
 bindsym XF86MonBrightnessDown exec "sh $HOME/scripts/brightness.sh -5"
+bindsym $mod+Shift+p exec pm2 restart -a clash
