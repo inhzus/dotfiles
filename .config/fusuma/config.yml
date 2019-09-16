@@ -15,6 +15,12 @@ swipe:
       command: 'xdotool key alt+F4'
     down:
       command: "xdotool key super+d"
+    left:
+      command: "xdotool key ctrl+super+Left"
+      threshold: 0.05
+    right:
+      command: "xdotool key ctrl+super+Right"
+      threshold: 0.05
 pinch:
   2:
     in:
