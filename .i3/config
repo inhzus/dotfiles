@@ -46,7 +46,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio --start
+#exec --no-startup-id pulseaudio --start
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
@@ -324,11 +324,12 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3status
+#	status_command i3status
+    status_command $HOME/.local/bin/i3x_status
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
+	tray_output primary
 #	tray_output eDP1
 
 	bindsym button4 nop
@@ -337,12 +338,13 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background  #222222
+#        background  #222222
 #        background #222D31
-        statusline  #666666
+        statusline  #CCCCCC
 #        statusline #F9FAF9
-        separator   #444444
-#        separator  #454947
+        separator #000000
+#        separator   #444444
+        separator  #454947
 
 #        focused_workspace   #888888 #666666 #111111
 #                      border  backgr. text
@@ -429,6 +431,7 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id fcitx
 exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
 exec $HOME/scripts/auto-clash.sh
+exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
@@ -438,9 +441,14 @@ bindsym $mod+Shift+less move workspace to output left
 
 bindsym Print --release exec /usr/bin/flameshot gui
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5+"
-bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5-"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%-"
 bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
 bindsym XF86MonBrightnessUp exec "sh $HOME/scripts/brightness.sh 5"
 bindsym XF86MonBrightnessDown exec "sh $HOME/scripts/brightness.sh -5"
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
+
