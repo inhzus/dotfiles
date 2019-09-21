@@ -4,5 +4,5 @@
 
 vol=`amixer sset Master,0 $1 unmute | awk -F'[][]' '/\[on\]/ {print $2; exit}'`
 echo "volume|vol:$vol" > /tmp/i3x.status
-sh $HOME/scripts/notify.sh -R $HOME/.cache/notify/volume "Volume Level: $vol" 2>/dev/null
+#sh $HOME/scripts/notify.sh -R $HOME/.cache/notify/volume "Volume Level: $vol" 2>/dev/null
 
