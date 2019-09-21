@@ -35,7 +35,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+d exec /usr/bin/rofi -show drun
+bindsym $mod+d exec "/usr/bin/rofi -modi combi -combi-modi window,drun -show combi"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -373,8 +373,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 3
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -431,7 +431,7 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id fcitx
 exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
 exec $HOME/scripts/auto-clash.sh
-exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
+exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
