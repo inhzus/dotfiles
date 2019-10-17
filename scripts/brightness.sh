@@ -6,5 +6,5 @@
 
 xbacklight -inc $1
 result=$(echo $(xbacklight -get) | cut -d'.' -f1)
-
-sh $HOME/scripts/notify.sh -R $HOME/.cache/notify/brightness "Brightness Level: $result%"
+echo "brightness|brt:$result%" > /tmp/i3x.status
+# sh $HOME/scripts/notify.sh -R $HOME/.cache/notify/brightness "Brightness Level: $result%"

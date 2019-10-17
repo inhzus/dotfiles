@@ -139,6 +139,9 @@ bindsym $mod+minus scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next_on_output
 bindsym $mod+Ctrl+Left workspace prev_on_output
+# focus left / right workspace
+bindsym $mod+Ctrl+Up focus output left
+bindsym $mod+Ctrl+Down focus output right
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use

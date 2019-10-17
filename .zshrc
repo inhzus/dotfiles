@@ -112,33 +112,31 @@ export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 
-# rm alias
-alias rm="gio trash"
 
-# clear alias
+
+# alias
 alias cl="clear"
+alias rm="gio trash"
+rfind () { sudo rifle $(find $@ -type f 2>/dev/null | fzf -e --reverse); }
+ffind () { sudo find $@ -type f 2>/dev/null | fzf -e --reverse; }
+alias cat_history="cat ~/.zsh_history | grep"
+alias plz="sudo"
 
-# proxychains alias
+## proxy
 alias pr="proxychains4"
-
-# setproxy.sh
 alias sp="setproxy.sh"
-
-# graftcp
 alias gr="graftcp"
-alias grl="graftcp-local"
-
-# clash web
+alias grl="graftcp-local -socks5 127.0.0.1:7891"
 alias clash-web="cd ~/repos/clash-dashboard && npm start"
 
-# curl p.nju.edu.cn
+## curl p.nju.edu.cn
 alias net="sh ~/scripts/net.sh && pm2 restart clash -a"
 
-# zsh configuration
+## zsh configuration
 alias reload="source ~/.zshrc"
 alias zconfig="vim ~/.zshrc"
 
-# xdg-open
+## xdg-open
 alias xopen="xdg-open"
 
 # Hadoop configuration
@@ -154,7 +152,8 @@ export PATH=~/.gem/ruby/2.6.0/bin:$PATH
 # go bin
 export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 # export GO111MODULE=on
-export GOPROXY=https://goproxy.cn
+export GOPATH=$HOME/go
+export GOPROXY=https://goproxy.io
 
 # scripts
 
@@ -201,6 +200,12 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-pm2-completion-###
 
+# termite ctrl+shift+t open terminal in current directory
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
 # include z.sh
 . ~/z.sh
 
@@ -216,6 +221,7 @@ bindkey '^ ' autosuggest-accept
 
 alias dual_screen="xrandr --output eDP1 --left-of DP1 --auto &&
 xrandr --output DP1 --left-of eDP1 --auto"
+alias eu4="$HOME/.paradoxlauncher/launcher-v2.2019.09.1/Paradox\ Launcher --gameDir $HOME/.local/share/Steam/steamapps/common/Europa\ Universalis\ IV"
 
 # screenfetch | lolcat
 setopt nonomatch
