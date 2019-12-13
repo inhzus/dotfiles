@@ -1,0 +1,8 @@
+set -x JAVA_HOME /usr/lib/jvm/java-8-openjdk
+set -x JRE_HOME $JAVA_HOME/jre
+set -x CLASSPATH . $JAVA_HOME/lib $JRE_HOME/lib
+
+set -x GOPATH $HOME/go
+set -x GOPROXY https://goproxy.io
+
+set -U fish_user_paths $JAVA_HOME/bin $HOME/.local/bin $HOME/.npm/bin $HOME/.gem/ruby/2.6.0/bin /usr/local/go/bin $HOME/go/bin $HOME/scripts/

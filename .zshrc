@@ -7,6 +7,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/suun/.oh-my-zsh"
+export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -103,24 +104,50 @@ export LANGUAGE=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export DEFAULT_USER="suun"
 
-# User bin path
-export PATH=/home/suun/.local/bin:$PATH
-
-# JAVA configuration
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-
-
-
 # alias
 alias cl="clear"
 alias rm="gio trash"
-rfind () { sudo rifle $(find $@ -type f 2>/dev/null | fzf -e --reverse); }
-ffind () { sudo find $@ -type f 2>/dev/null | fzf -e --reverse; }
+# xfind () { sudo rifle $(find $@ -type f 2>/dev/null | fzf -e --reverse); }
+ffind () {
+    dir="."
+    typ="f"
+    if [[ $# -gt 0 ]]; then
+        dir=$1
+    fi
+    if [[ $# -gt 1 ]]; then
+        typ=$2
+    fi
+    sudo find $dir -type $typ 2>/dev/null | fzf -e --reverse;
+}
+rfind () {
+    sudo rifle $(ffind $@);
+}
+# alias rfind="sudo rifle \$(ffind)";
+alias re="tee /tmp/bash.record"
+alias we="cat /tmp/bash.record"
+
+# tmux
+alias t="tmux"
+
 alias cat_history="cat ~/.zsh_history | grep"
 alias plz="sudo"
+
+# youtube-dl
+alias ydl="youtube-dl --external-downloader aria2c"
+m3u8 () {
+    proxychains4 ffmpeg -i $1 -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 $2.mp4
+}
+sm3u8 () {
+    streamlink "hlsvariant://$1" best --hls-segment-threads 10 -o $2.mp4
+}
+
+# bluetooth
+alias b2ue="bluetoothctl connect 70:26:05:D9:6C:74"
+alias b3ue="bluetoothctl connect 38:18:4C:47:EE:D4"
+
+# vmware
+alias vm_env_start="sudo systemctl start vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
+alias vm_env_stop="sudo systemctl stop vmware-networks.service vmware-usbarbitrator.service vmware-hostd.service"
 
 ## proxy
 alias pr="proxychains4"
@@ -139,12 +166,24 @@ alias zconfig="vim ~/.zshrc"
 ## xdg-open
 alias xopen="xdg-open"
 
+# User bin path
+export PATH=/home/suun/.local/bin:$PATH
+
+# JAVA configuration
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+
 # Hadoop configuration
 export HADOOP_HOME=/home/suun/local/hadoop-2.7.7
-export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:$PATH
+# export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:$PATH
 
 # Maven path
 export PATH=/usr/lib/maven/apache-maven-3.6.1/bin:$PATH
+
+# npm
+export PATH=~/.npm/bin:$PATH
 
 # Ruby
 export PATH=~/.gem/ruby/2.6.0/bin:$PATH
@@ -219,9 +258,7 @@ bindkey '^ ' autosuggest-accept
 # OPAM configuration
 # . /home/suun/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-alias dual_screen="xrandr --output eDP1 --left-of DP1 --auto &&
-xrandr --output DP1 --left-of eDP1 --auto"
-alias eu4="$HOME/.paradoxlauncher/launcher-v2.2019.09.1/Paradox\ Launcher --gameDir $HOME/.local/share/Steam/steamapps/common/Europa\ Universalis\ IV"
+alias dual_screen="xrandr --output eDP1 --left-of DP1 --auto && xrandr --output DP1 --left-of eDP1 --auto"
 
 # screenfetch | lolcat
 setopt nonomatch
