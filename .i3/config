@@ -436,9 +436,10 @@ mode "$mode_gaps_outer" {
 
 # exec startup
 exec --no-startup-id fcitx
-exec /home/suun/.gem/ruby/2.6.0/bin/fusuma -d
+exec --no-startup-id $HOME/.gem/ruby/2.6.0/bin/fusuma -d
 exec --no-startup-id "zsh $HOME/scripts/auto-clash.sh"
 exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
+exec --no-startup-id "fish -c \"dual_screen\""
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 

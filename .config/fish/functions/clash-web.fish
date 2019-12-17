@@ -1,4 +1,4 @@
-# Defined in - @ line 1
-function clash-web --description 'alias clash-web=cd ~/repos/clash-dashboard && npm start'
-	cd ~/repos/clash-dashboard && npm start $argv;
+# Defined in /tmp/fish.iqgtZy/clash-web.fish @ line 2
+function clash-web
+	cd ~/repos/clash-dashboard && npm start;
 end

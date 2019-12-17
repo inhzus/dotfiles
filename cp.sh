@@ -5,4 +5,4 @@ cp ~/.gitconfig ~/.vimrc ~/.zshrc .
 cp ~/scripts/* ./scripts/
 cp ~/.i3/config .i3/
 cp ~/.config/i3status/config .config/i3status
-cp ~/.config/fish .config/fish
+cp -r ~/.config/fish .config/

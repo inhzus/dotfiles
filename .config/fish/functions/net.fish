@@ -1,4 +1,4 @@
-# Defined in - @ line 1
-function net --description 'alias net=sh ~/scripts/net.sh && pm2 restart clash -a'
-	sh ~/scripts/net.sh && pm2 restart clash -a $argv;
+# Defined in /tmp/fish.d8QUOU/net.fish @ line 2
+function net
+	sh ~/scripts/net.sh && pm2 restart clash -a;
 end

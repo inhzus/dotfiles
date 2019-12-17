@@ -1,4 +1,4 @@
-# Defined in - @ line 1
-function reload --description 'alias reload=source ~/.zshrc'
-	source ~/.zshrc $argv;
+# Defined in /tmp/fish.Kv8Oeo/reload.fish @ line 2
+function reload
+	source ~/.config/fish/config.fish;
 end

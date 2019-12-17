@@ -3,6 +3,11 @@
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr_cl:clear
+SETUVAR _fish_abbr_gr:graftcp
+SETUVAR _fish_abbr_grl:graftcp\x2dlocal\x20\x2dsocks5\x20127\x2e0\x2e0\x2e1\x3a7891
+SETUVAR _fish_abbr_pr:proxychains4
+SETUVAR _fish_abbr_t:tmux
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:ffffff
