@@ -37,9 +37,6 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec "/usr/bin/rofi -modi combi -combi-modi window,drun -show combi"
 
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -58,7 +55,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec google-chrome-stable
+bindsym $mod+F2 exec --no-startup-id google-chrome-stable
 bindsym $mod+F3 exec termite -e ranger
 # bindsym $mod+F3 exec ranger
 #bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -110,12 +107,12 @@ bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -124,10 +121,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -142,6 +139,9 @@ bindsym $mod+Ctrl+Left workspace prev_on_output
 # focus left / right workspace
 bindsym $mod+Ctrl+Up focus output left
 bindsym $mod+Ctrl+Down focus output right
+bindsym $mod+z workspace prev_on_output
+bindsym $mod+x workspace next_on_output
+bindsym $mod+c focus output right
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -447,6 +447,7 @@ exec --no-startup-id "fish -c \"dual_screen\""
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
+
 bindsym Print --release exec /usr/bin/flameshot gui
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%+"
@@ -461,5 +462,5 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
 
 # exec --no-startup-id termite --name dropdown
-bindsym shift+$mod+grave exec termite -c $HOME/.config/termite/trans-config --name dropdown
+bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite/trans-config --name dropdown
 bindsym $mod+grave [instance="dropdown"] scratchpad show
