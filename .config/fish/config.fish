@@ -1,4 +1,4 @@
-set -x JAVA_HOME /usr/lib/jvm/java-8-openjdk
+set -x JAVA_HOME /usr/lib/jvm/java-13-openjdk
 set -x JRE_HOME $JAVA_HOME/jre
 set -x CLASSPATH . $JAVA_HOME/lib $JRE_HOME/lib
 

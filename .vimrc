@@ -90,3 +90,5 @@ let g:color_coded_enabled = 1
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+let &t_ut=''
+" to make vim compatible with the color scheme of the terminal emulator

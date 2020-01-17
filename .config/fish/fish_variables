@@ -7,6 +7,7 @@ SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_gr:graftcp
 SETUVAR _fish_abbr_grl:graftcp\x2dlocal\x20\x2dsocks5\x20127\x2e0\x2e0\x2e1\x3a7891
 SETUVAR _fish_abbr_pr:proxychains4
+SETUVAR _fish_abbr_rm:trash
 SETUVAR _fish_abbr_t:tmux
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
@@ -35,4 +36,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/usr/lib/jvm/java\x2d8\x2dopenjdk/bin\x1e/home/suun/\x2elocal/bin\x1e/home/suun/\x2enpm/bin\x1e/home/suun/\x2egem/ruby/2\x2e6\x2e0/bin\x1e/home/suun/go/bin\x1e/home/suun/scripts
+SETUVAR fish_user_paths:/usr/lib/jvm/java\x2d13\x2dopenjdk/bin\x1e/home/suun/\x2elocal/bin\x1e/home/suun/\x2enpm/bin\x1e/home/suun/\x2egem/ruby/2\x2e6\x2e0/bin\x1e/home/suun/go/bin\x1e/home/suun/scripts
