@@ -28,8 +28,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec terminal
-# bindsym $mod+Return exec termite
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec termite
+# bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -437,6 +437,7 @@ mode "$mode_gaps_outer" {
 
 # exec startup
 exec --no-startup-id fcitx
+# exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id $HOME/.gem/ruby/2.6.0/bin/fusuma -d
 exec --no-startup-id "zsh $HOME/scripts/auto-clash.sh"
 exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
@@ -463,6 +464,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
 
 # exec --no-startup-id termite --name dropdown
-#bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite/trans-config --name dropdown
-bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
+bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite/trans-config --name dropdown
+# bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
 bindsym $mod+grave [instance="dropdown"] scratchpad show
