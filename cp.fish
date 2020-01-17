@@ -14,3 +14,5 @@ cp -r ~/.config/fish .config/
 test -d .config/kitty || mkdir -p .config/kitty
 cp ~/.config/kitty/kitty.conf ~/.config/kitty/theme.conf ./.config/kitty
 cp ~/.profile .
+test -d .config/fcitx/rime || mkdir -p .config/fcitx/rime
+cd .config/fcitx/rime && cp ~/.config/fcitx/rime/default.custom.yaml ~/.config/fcitx/rime/mysymbols.yaml .
