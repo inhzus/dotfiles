@@ -6,5 +6,5 @@ set -x GOPATH $HOME/go
 set -x GOPROXY https://goproxy.io
 set -x PROXY http://localhost:7890
 
-set -U fish_user_paths $JAVA_HOME/bin $HOME/.local/bin $HOME/.npm/bin $HOME/.gem/ruby/2.6.0/bin $HOME/go/bin $HOME/scripts
+set -U fish_user_paths $JAVA_HOME/bin $HOME/.local/bin $HOME/.npm/bin $HOME/.gem/ruby/2.7.0/bin $HOME/go/bin $HOME/scripts
 set TERM xterm-256color

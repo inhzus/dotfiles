@@ -56,8 +56,8 @@ bindsym $mod+d exec "/usr/bin/rofi -modi combi -combi-modi window,drun -show com
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec --no-startup-id google-chrome-stable
-bindsym $mod+F3 exec termite -e ranger
+bindsym $mod+F3 exec --no-startup-id google-chrome-stable
+# bindsym $mod+F3 exec termite -e ranger
 # bindsym $mod+F3 exec ranger
 #bindsym $mod+Shift+F3 exec gksu pcmanfm
 #bindsym $mod+F5 exec terminal -e 'mocp'
@@ -223,6 +223,7 @@ for_window [class="Xfburn"] floating enable
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="flameshot"] floating enable
 for_window [instance="dropdown"] floating enable, resize set 1120px 1080px, move position 801px 0px, move scratchpad
+for_window [instance="qutebrowser"] floating enable, resize set 1120px 1080px, move position 800px 0px, move scratchpad
 for_window [class="Musixmatch"] floating enable
 
 # switch to workspace with urgent window automatically
@@ -465,5 +466,9 @@ bindsym $mod+Shift+p exec pm2 restart -a clash
 
 # exec --no-startup-id termite --name dropdown
 bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite/trans-config --name dropdown
+bindsym shift+$mod+F2 exec --no-startup-id fish -c "sp qutebrowser"
+
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
 bindsym $mod+grave [instance="dropdown"] scratchpad show
+bindsym $mod+F2 [instance="qutebrowser"] scratchpad show
+
