@@ -40,17 +40,17 @@ Plug 'tpope/vim-sensible'
 "endif
 
 
-function! BuildYCM(info)
+" function! BuildYCM(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"   if a:info.status == 'installed' || a:info.force
+"    !./install.py
+"  endif
+" endfunction
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Plug 'dense-analysis/ale'
 " let g:ale_linters_explicit = 1
@@ -79,7 +79,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " set updatetime=100
 
 Plug 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
+map <C-M> :NERDTreeToggle<CR>
 
 Plug 'tomasr/molokai'
 let g:molokai_original = 1
@@ -88,6 +88,14 @@ let g:rehash256 = 1
 Plug 'jeaye/color_coded'
 let g:color_coded_enabled = 1
 " List ends here. Plugins become visible to Vim after this call.
+
+Plug 'xavierd/clang_complete'
+let g:clang_library_path='/usr/lib/libclang.so.9'
+let g:clang_complete_macros=1
+let g:clang_snippets=1
+let g:clang_periodic_quickfix=1
+let g:clang_close_preview=1
+
 call plug#end()
 
 let &t_ut=''
