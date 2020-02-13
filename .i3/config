@@ -37,7 +37,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec "/usr/bin/rofi -modi combi -combi-modi window,drun -show combi"
-
+# bindsym $mod+d exec "/usr/bin/rofi -show combi"
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -225,6 +225,7 @@ for_window [class="flameshot"] floating enable
 for_window [instance="dropdown"] floating enable, resize set 1120px 1080px, move position 801px 0px, move scratchpad
 for_window [instance="qutebrowser"] floating enable, resize set 1120px 1080px, move position 800px 0px, move scratchpad
 for_window [class="Musixmatch"] floating enable
+for_window [class="TelegramDesktop"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
