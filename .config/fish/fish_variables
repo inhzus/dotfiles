@@ -7,6 +7,8 @@ SETUVAR __fish_init_3_x:\x1d
 SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_gr:graftcp
 SETUVAR _fish_abbr_grl:graftcp\x2dlocal\x20\x2dsocks5\x20127\x2e0\x2e0\x2e1\x3a7891
+SETUVAR _fish_abbr_nova__v2ray:v2ray\x20\x2dconfig\x20/home/suun/\x2econfig/v2ray/config\x2ejson
+SETUVAR _fish_abbr_novapr:proxychains4\x20\x2df\x20/home/suun/\x2econfig/proxychains4/nova\x2econf
 SETUVAR _fish_abbr_pr:proxychains4
 SETUVAR _fish_abbr_rm:trash
 SETUVAR _fish_abbr_t:tmux

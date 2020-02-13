@@ -1,1 +1,3 @@
-/home/suun/.local/share/omf/themes/batman/fish_prompt.fish
+function fish_prompt
+	printf '%s%s%s> ' (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+end
