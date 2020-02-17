@@ -1,7 +1,7 @@
 patch:
   schema_list:
 #    - schema: luna_pinyin          # 朙月拼音
-    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
+#    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
 #    - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式
 #    - schema: terra_pinyin         # 地球拼音 dì qiú pīn yīn
 #    - schema: bopomofo             # 注音
@@ -20,5 +20,6 @@ patch:
 #    - schema: sampheng             # 中古漢語三拼
 #    - schema: zyenpheng            # 中古漢語全拼
 #    - schema: ipa_xsampa           # X-SAMPA 國際音標
-    - schema: emoji                # emoji 表情
+#    - schema: emoji                # emoji 表情
+    - schema: kana                  # kana 日文
 
