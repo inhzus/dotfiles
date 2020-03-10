@@ -469,7 +469,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
 
 # exec --no-startup-id termite --name dropdown
-bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite/trans-config --name dropdown
+# bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
+bindsym shift+$mod+grave exec --no-startup-id termite --name dropdown
 bindsym shift+$mod+F2 exec --no-startup-id fish -c "sp qutebrowser"
 
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown

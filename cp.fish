@@ -12,11 +12,13 @@ test -d .config/i3status || mkdir -p .config/i3status
 cp ~/.config/i3status/config .config/i3status
 cp -r ~/.config/fish .config/
 test -d .config/kitty || mkdir -p .config/kitty
-cp ~/.config/kitty/kitty.conf ~/.config/kitty/theme.conf ./.config/kitty
+cp ~/.config/kitty/kitty.conf ./.config/kitty
 cp ~/.profile .
 cp ~/.makepkg.conf .
 test -d .config/fcitx/rime || mkdir -p .config/fcitx/rime
 cp ~/.config/fcitx/rime/*.yaml .config/fcitx/rime
 test -d .config/nvim || mkdir -p .config/nvim
 cp ~/.config/nvim/init.vim ~/.config/nvim/coc-settings.json .config/nvim
+test -d .config/alacritty || mkdir -p .config/alacritty
+cp ~/.config/alacritty/alacritty.yml .config/alacritty
 

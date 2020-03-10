@@ -23,6 +23,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
 

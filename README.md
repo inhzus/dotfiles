@@ -4,7 +4,7 @@ XPS 13 Ubuntu 18.04 LTS tools.
 
 ### Terminal
 
-- termite
+- kitty
 
 - fish
 
