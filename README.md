@@ -4,11 +4,11 @@ XPS 13 Ubuntu 18.04 LTS tools.
 
 ### Terminal
 
-- zsh
+- termite
 
-- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- fish
 
-- tilda
+- neovim / coc.nvim / ccls
 
 ### Web
 
@@ -18,11 +18,11 @@ XPS 13 Ubuntu 18.04 LTS tools.
 
 - [graftcp](https://github.com/hmgle/graftcp)
 
-### Tool
+### Tools
 
 - tlp & tlp-rdw
 
-### Desktop Environment
+### For Desktop Environment
 
 - [Fusuma](https://github.com/iberianpig/fusuma)
 
@@ -32,11 +32,11 @@ XPS 13 Ubuntu 18.04 LTS tools.
 
 - [Vimix icon theme](https://github.com/vinceliuice/vimix-icon-theme)
 
-### Other
-
-- [Electron ssr](https://github.com/shadowsocksrr/electron-ssr)
+### Softwares with GUI
 
 - Smart git
 
 - TLPUI
+
+- Sourcetrail
 
