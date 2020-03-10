@@ -22,7 +22,9 @@ bindsym $mod+n border normal
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font xft:URWGothic-Book 11
-font xft:Source Code Pro for Powerline 11
+# font xft:Source Code Pro for Powerline 11
+font xft:Jetbrains Mono 13
+font pango:Jetbrains Mono 13
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -226,6 +228,8 @@ for_window [instance="dropdown"] floating enable, resize set 1120px 1080px, move
 for_window [instance="qutebrowser"] floating enable, resize set 1120px 1080px, move position 800px 0px, move scratchpad
 for_window [class="Musixmatch"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="baidunetdisk"] floating enable
+for_window [title="Stats"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -450,7 +454,6 @@ exec --no-startup-id "fish -c \"dual_screen\""
 # move focused workspace between monitors
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
-
 
 bindsym Print --release exec /usr/bin/flameshot gui
 

@@ -17,3 +17,6 @@ cp ~/.profile .
 cp ~/.makepkg.conf .
 test -d .config/fcitx/rime || mkdir -p .config/fcitx/rime
 cp ~/.config/fcitx/rime/*.yaml .config/fcitx/rime
+test -d .config/nvim || mkdir -p .config/nvim
+cp ~/.config/nvim/init.vim ~/.config/nvim/coc-settings.json .config/nvim
+

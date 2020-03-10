@@ -1,8 +1,6 @@
 [user]
 	name = inhzus
 	email = inhzus@gmail.com
-[credential]
-	helper = store
 [core]
 	editor = vim
 	autocrlf = false
