@@ -11,6 +11,7 @@ set number
 set autoindent
 set cindent
 set cino=l1
+set clipboard=unnamedplus
 
 autocmd FileType c,cpp :set expandtab ts=2 sw=2 softtabstop=2
 autocmd FileType java :set expandtab ts=2 sw=4 softtabstop=4
@@ -22,10 +23,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'Raimondi/delimitMate'
+Plug 'luochen1990/rainbow'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'wakatime/vim-wakatime'
+Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
+
+" custom config
+nnoremap <Leader><space> :noh<cr>
+nmap <A-1> 1gt<CR>
+nmap <A-2> 2gt<CR>
+nmap <A-3> 3gt<CR>
 
 " coc.nvim config
 set hidden
@@ -79,7 +89,7 @@ augroup mygroup
 augroup end
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+command! -nargs=0 Format :call CocAction('format')
 " Mappings using CoCList:
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -99,14 +109,31 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 :nmap <space>e :CocCommand explorer<CR>
-" let g:coc_user_config = {}
+let g:coc_user_config = {}
+let g:coc_user_config['coc.preferences.currentFunctionSymbolAutoUpdate'] = 'true'
 " let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
 
 " fzf.nvim
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-:nmap <space>f :FZF<CR>
+:nmap <A-f> :FZF<CR>
+:nmap <A-t> :tabnew<CR>:FZF<CR>
 
-" delimit mate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
+" rainbow
+let g:rainbow_active = 1
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
 

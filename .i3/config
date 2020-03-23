@@ -230,6 +230,8 @@ for_window [class="Musixmatch"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="baidunetdisk"] floating enable
 for_window [title="Stats"] floating enable
+for_window [title="Custom Trail"] floating enable
+for_window [instance="qq"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -387,9 +389,10 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 3
+# gaps inner 3
+# gaps outer 0
+gaps inner 5
 gaps outer 0
-
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
@@ -445,7 +448,8 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id fcitx
 # exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id $HOME/.gem/ruby/2.6.0/bin/fusuma -d
-exec --no-startup-id "zsh $HOME/scripts/auto-clash.sh"
+exec "sh $HOME/scripts/auto-clash.sh"
+exec --no-startup-id "fish $HOME/scripts/check-conn.fish"
 exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
 exec --no-startup-id "fish -c \"dual_screen\""
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
@@ -470,7 +474,7 @@ bindsym $mod+Shift+p exec pm2 restart -a clash
 
 # exec --no-startup-id termite --name dropdown
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
-bindsym shift+$mod+grave exec --no-startup-id termite --name dropdown
+bindsym shift+$mod+grave exec --no-startup-id termite -c ~/.config/termite --name dropdown
 bindsym shift+$mod+F2 exec --no-startup-id fish -c "sp qutebrowser"
 
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown

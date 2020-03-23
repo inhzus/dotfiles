@@ -2,8 +2,9 @@
   "languageserver": {
     "ccls": {
       "command": "ccls",
+      "args": ["--log-file=/tmp/ccls.log"],
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".git", ".ccls-root", "compile_commands.json"],
+      "rootPatterns": [".git", ".ccls", ".ccls-root", "compile_commands.json"],
       "initializationOptions": {
         "cache": {
           "directory": "/tmp/ccls-cache"
