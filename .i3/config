@@ -101,8 +101,8 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# bindsym $mod+b workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -110,7 +110,7 @@ bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
@@ -224,8 +224,8 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="flameshot"] floating enable
-for_window [instance="dropdown"] floating enable, resize set 1120px 1080px, move position 801px 0px, move scratchpad
-for_window [instance="qutebrowser"] floating enable, resize set 1120px 1080px, move position 800px 0px, move scratchpad
+for_window [instance="dropdown"] floating enable, resize set 1080px 960px, move position 801px 44px, move scratchpad
+for_window [instance="qutebrowser"] floating enable, resize set 1120px 960px, move position 801px 44px, move scratchpad
 for_window [class="Musixmatch"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="baidunetdisk"] floating enable
@@ -338,39 +338,39 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar
-#	status_command i3status
-    status_command $HOME/.local/bin/i3x_status
-	position bottom
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output primary
-#	tray_output eDP1
-
-	bindsym button4 nop
-	bindsym button5 nop
-#   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
-
-    colors {
-#        background  #222222
-#        background #222D31
-        statusline  #CCCCCC
-#        statusline #F9FAF9
-        separator #000000
-#        separator   #444444
-        separator  #454947
-
-#        focused_workspace   #888888 #666666 #111111
-#                      border  backgr. text
-#        focused_workspace  #F9FAF9 #16a085 #292F34
-#        active_workspace   #595B5B #353836 #FDF6E3
-#        inactive_workspace #595B5B #222D31 #EEE8D5
-#        binding_mode       #16a085 #2C2C2C #F9FAF9
-#        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
+#bar {
+#	i3bar_command i3bar
+##status_command i3status
+##status_command $HOME/.local/bin/i3x_status
+#	position bottom
+#
+### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#	tray_output primary
+##	tray_output eDP1
+#
+#	bindsym button4 nop
+#	bindsym button5 nop
+##   font xft:URWGothic-Book 11
+#	strip_workspace_numbers yes
+#
+#    colors {
+##        background  #222222
+##        background #222D31
+#        statusline  #CCCCCC
+##        statusline #F9FAF9
+#        separator #000000
+##        separator   #444444
+#        separator  #454947
+#
+##        focused_workspace   #888888 #666666 #111111
+##                      border  backgr. text
+##        focused_workspace  #F9FAF9 #16a085 #292F34
+##        active_workspace   #595B5B #353836 #FDF6E3
+##        inactive_workspace #595B5B #222D31 #EEE8D5
+##        binding_mode       #16a085 #2C2C2C #F9FAF9
+##        urgent_workspace   #16a085 #FDF6E3 #E5201D
+#    }
+#}
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
@@ -391,15 +391,16 @@ bindsym $mod+m bar mode toggle
 # Set inner/outer gaps
 # gaps inner 3
 # gaps outer 0
-gaps inner 5
-gaps outer 0
+gaps inner 20
+gaps outer 15
+gaps bottom 48
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -449,9 +450,10 @@ exec --no-startup-id fcitx
 # exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id $HOME/.gem/ruby/2.6.0/bin/fusuma -d
 exec "sh $HOME/scripts/auto-clash.sh"
-exec --no-startup-id "fish $HOME/scripts/check-conn.fish"
-exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
+# exec --no-startup-id "fish $HOME/scripts/check-conn.fish"
+# exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
 exec --no-startup-id "fish -c \"dual_screen\""
+exec "sh $HOME/.config/polybar/launch.sh"
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
@@ -461,16 +463,22 @@ bindsym $mod+Shift+less move workspace to output left
 
 bindsym Print --release exec /usr/bin/flameshot gui
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%+"
-bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%-"
-bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
-bindsym XF86MonBrightnessUp exec "sh $HOME/scripts/brightness.sh 5"
-bindsym XF86MonBrightnessDown exec "sh $HOME/scripts/brightness.sh -5"
+# bindsym XF86AudioRaiseVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%+"
+# bindsym XF86AudioLowerVolume exec --no-startup-id "sh $HOME/scripts/volume.sh 5%-"
+# bindsym XF86AudioMute exec --no-startup-id "sh $HOME/scripts/volume.sh 0"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master,0 5%+ unmute"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master,0 5%- unmute"
+bindsym XF86AudioMute exec --no-startup-id "amixer sset Master,0 mute"
+# bindsym XF86MonBrightnessUp exec "sh $HOME/scripts/brightness.sh 5"
+# bindsym XF86MonBrightnessDown exec "sh $HOME/scripts/brightness.sh -5"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -inc -5"
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
+bindsym $mod+Shift+b exec "sh $HOME/.config/polybar/launch.sh"
 
 # exec --no-startup-id termite --name dropdown
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown

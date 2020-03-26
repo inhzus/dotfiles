@@ -1,0 +1,213 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+;foreground = ${xrdb:color7:#222}
+background = #222
+foreground = #dfdfdf
+;background = #D93d3c3b
+;foreground = #b6a49b
+foreground-alt = #555
+background-alt = #444
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/bar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 96%
+height = 32
+bottom = true
+offset-x = 2%
+offset-y = 10
+radius = 15.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+# border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 16
+
+module-margin-left = 1
+module-margin-right = 0
+
+font-0 = JetbrainsMono:size:12;3
+font-1 = NotoSansCJKSC:size:12;3
+font-2 = FontAwesome5Free:style=Solid:size=12;4
+font-3 = FontAwesome5Free:style=Regular:size=12;4
+font-4 = FontAwesome5Brands:style=Regular:size=12;4
+
+# modules-left = bspwm i3
+modules-left = i3
+modules-center = spotify
+modules-right = conn backlight volume battery date
+# modules-center = mpd
+# modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+
+tray-position = right
+tray-padding = 1
+tray-maxsize = 24
+tray-offset-x = -12
+tray-detached = true
+; tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/spotify]
+type = custom/script
+interval = 1
+# format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/scripts/spotify_status.py -f ' {song}  {artist}'
+format-underline = #1db954
+
+[module/conn]
+type = custom/script
+internal = 1
+exec = fish ~/.config/polybar/scripts/conn.fish
+format-underline = #6666FF
+
+[module/i3]
+type = internal/i3
+format = "<label-state> <label-mode>"
+format-padding = 2
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+; label-focused-underline= ${colors.primary}
+label-focused-underline = #CCCCCC
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 0
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+enable-scroll = false
+format =  <label>
+format-underline = #4bffdc
+label = %percentage%%
+
+[module/date]
+type = internal/date
+interval = 60
+date = %d/%m
+time = %H:%M
+label =  %date%  %time%
+;format-underline = #55aa55
+format-underline = #99CCFF
+format-padding = 1
+
+[module/volume]
+type = internal/volume
+format-volume = "<ramp-volume> <label-volume>"
+format-volume-underline = #9f78e1
+
+format-muted =  
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 =  
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+label-full = %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1 = 
+#ramp-capacity-1-foreground = ${colors.warning}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+# ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

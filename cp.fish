@@ -21,4 +21,8 @@ test -d .config/nvim || mkdir -p .config/nvim
 cp ~/.config/nvim/init.vim ~/.config/nvim/coc-settings.json .config/nvim
 test -d .config/alacritty || mkdir -p .config/alacritty
 cp ~/.config/alacritty/alacritty.yml .config/alacritty
+test -d .config/ranger || mkdir -p .config/ranger
+cp ~/.config/ranger/rifle.conf .config/ranger
+test -d .config/polybar || mkdir -p .config/polybar
+cp -r ~/.config/polybar .config/polybar
 
