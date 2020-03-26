@@ -112,7 +112,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 0
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -136,7 +136,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 0
+label-urgent-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |

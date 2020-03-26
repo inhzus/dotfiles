@@ -2,7 +2,7 @@
 alignment = center
 follow = keyboard
 frame_width = 1
-geometry = 150x0-5+5
+geometry = 300x0-5+5
 padding = 5
 font = FiraSans 12
 separator_color = "#383838"
