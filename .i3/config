@@ -453,7 +453,7 @@ exec "sh $HOME/scripts/auto-clash.sh"
 # exec --no-startup-id "fish $HOME/scripts/check-conn.fish"
 # exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
 exec --no-startup-id "fish -c \"dual_screen\""
-exec "sh $HOME/.config/polybar/launch.sh"
+exec --no-startup-id "sh $HOME/.config/polybar/launch.sh"
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
@@ -478,7 +478,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
-bindsym $mod+Shift+b exec "sh $HOME/.config/polybar/launch.sh"
+bindsym $mod+Shift+b exec --no-startup-id "sh $HOME/.config/polybar/launch.sh"
 
 # exec --no-startup-id termite --name dropdown
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown

@@ -12,6 +12,8 @@ set autoindent
 set cindent
 set cino=l1
 set clipboard=unnamedplus
+set fillchars+=vert:\ 
+highlight VertSplit cterm=NONE
 
 autocmd FileType c,cpp :set expandtab ts=2 sw=2 softtabstop=2
 autocmd FileType java :set expandtab ts=2 sw=4 softtabstop=4
