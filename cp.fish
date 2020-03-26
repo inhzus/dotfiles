@@ -25,4 +25,9 @@ test -d .config/ranger || mkdir -p .config/ranger
 cp ~/.config/ranger/rifle.conf .config/ranger
 test -d .config/polybar || mkdir -p .config/polybar
 cp -r ~/.config/polybar .config/polybar
-
+test -d .config/dunst || mkdir -p .config/dunst
+cp -r ~/.config/dunst .config/dunst
+test -d usr/share/alsa || mkdir -p usr/share/alsa
+cp /usr/share/alsa/alsa.conf usr/share/alsa/
+test -d etc || mkdir etc
+cp /etc/proxychains.conf /etc/graftcp-local.conf etc/
