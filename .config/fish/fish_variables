@@ -5,14 +5,14 @@ SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
 SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr_aria2c__metart:proxychains4\x20aria2c\x20\x2d\x2dhttp\x2duser\x3dsasha9\x20\x2d\x2dhttp\x2dpasswd\x3dstacy1985
 SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_gr:graftcp
 SETUVAR _fish_abbr_grl:graftcp\x2dlocal\x20\x2dsocks5\x20127\x2e0\x2e0\x2e1\x3a7891
 SETUVAR _fish_abbr_nova__v2ray:v2ray\x20\x2dconfig\x20/home/suun/\x2econfig/v2ray/config\x2ejson
 SETUVAR _fish_abbr_novapr:proxychains4\x20\x2df\x20/home/suun/\x2econfig/proxychains4/nova\x2econf
-SETUVAR _fish_abbr_pip__upgrade__all:pip\x20list\x20\x2d\x2dformat\x3dfreeze\x20\x7c\x20awk\x20\x2dF\x27\x3d\x27\x20\x27\x7b\x20print\x20\x20\x7d\x27\x20\x7c\x20xargs\x20\x2dn1\x20proxychains4\x20\x2dq\x20pip\x20install\x20\x2d\x2duser\x20\x2dU
-SETUVAR _fish_abbr_pr:proxychains4
+SETUVAR _fish_abbr_pr:proxychains
+SETUVAR _fish_abbr_prq:proxychains\x20\x2dq
+SETUVAR _fish_abbr_rm:trash
 SETUVAR _fish_abbr_t:tmux
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

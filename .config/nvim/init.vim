@@ -30,7 +30,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'wakatime/vim-wakatime'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'chrisbra/Colorizer'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 " custom config
@@ -38,6 +41,7 @@ nnoremap <Leader><space> :noh<cr>
 nmap <A-1> 1gt<CR>
 nmap <A-2> 2gt<CR>
 nmap <A-3> 3gt<CR>
+tnoremap <Esc> <C-\><C-n>
 
 " coc.nvim config
 set hidden
@@ -47,6 +51,7 @@ set signcolumn=yes
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -115,6 +120,10 @@ let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.currentFunctionSymbolAutoUpdate'] = 'true'
 " let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
 
+" vim-lsp-cxx-highlight
+let g:lsp_cxx_hl_use_text_props = 1
+let g:lsp_cxx_hl_use_nvim_text_props = 1
+
 " fzf.nvim
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 :nmap <A-f> :FZF<CR>
@@ -123,19 +132,39 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 " rainbow
 let g:rainbow_active = 1
 
+" lightline
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
+endfunction
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
 endfunction
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'git','modified' ] ],
+      \   'right': [ [ 'percent', 'lineinfo' ],
+      \              [ 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
+      \   'currentfunction': 'CocCurrentFunction',
       \ },
       \ }
 
+" auto-pair
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '<':'>'}
+
+" Colorizer
+let g:colorizer_auto_map = 1
+
+" commentary
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
+" vim-signify
+set updatetime=100

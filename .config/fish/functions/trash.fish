@@ -1,3 +1,3 @@
 function trash
-	gio trash $argv
+gio trash $argv
 end

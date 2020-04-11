@@ -30,3 +30,7 @@ background = "#282828"
 foreground = "#7ddc17"
 timeout = 0
 
+[钉钉]
+    summary = *钉钉*
+    urgency = CRITICAL
+    timeout = 0

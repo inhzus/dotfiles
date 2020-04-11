@@ -1,7 +1,6 @@
 # Defined in /tmp/fish.j1j70U/__fish_describe_command.fish @ line 2
 function __fish_describe_command --description 'Command used to find descriptions for commands'
 	return
-	
     type -q apropos; or return
     apropos $argv 2>/dev/null | awk -v FS=" +- +" '{
 		split($1, names, ", ");

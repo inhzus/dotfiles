@@ -31,12 +31,13 @@ alert = #bd2c40
 
 [bar/bar]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 96%
-height = 32
+# width = 96%
+width = 100%
+height = 27
 bottom = true
-offset-x = 2%
-offset-y = 10
-radius = 15.0
+# offset-x = 2%
+# offset-y = 10
+# radius = 15.0
 fixed-center = false
 
 background = ${colors.background}
@@ -49,16 +50,16 @@ line-color = #f00
 border-color = #00000000
 
 padding-left = 0
-padding-right = 16
+# padding-right = 16
 
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = JetbrainsMono:size:12;3
-font-1 = NotoSansCJKSC:size:12;3
-font-2 = FontAwesome5Free:style=Solid:size=12;4
-font-3 = FontAwesome5Free:style=Regular:size=12;4
-font-4 = FontAwesome5Brands:style=Regular:size=12;4
+font-0 = JetbrainsMono:size:12;1
+font-1 = NotoSansCJKSC:size:12;1
+font-2 = FontAwesome5Free:style=Solid:size=12;2
+font-3 = FontAwesome5Free:style=Regular:size=12;2
+font-4 = FontAwesome5Brands:style=Regular:size=12;2
 
 # modules-left = bspwm i3
 modules-left = i3
@@ -70,14 +71,15 @@ modules-right = conn backlight volume battery date
 tray-position = right
 tray-padding = 1
 tray-maxsize = 24
-tray-offset-x = -12
-tray-detached = true
+# tray-offset-x = -12
+# tray-detached = true
 ; tray-background = #0063ff
 
 ;wm-restack = bspwm
 wm-restack = i3
 
 override-redirect = true
+enable-ipc = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -100,12 +102,14 @@ format-underline = #1db954
 type = custom/script
 internal = 1
 exec = fish ~/.config/polybar/scripts/conn.fish
-format-underline = #6666FF
+format-underline = #4bffdc
+# format-underline = #6666FF
+# format-underline = ##FF6666
 
 [module/i3]
 type = internal/i3
 format = "<label-state> <label-mode>"
-format-padding = 2
+format-padding = 0
 index-sort = true
 wrapping-scroll = false
 
@@ -146,7 +150,9 @@ type = internal/backlight
 card = intel_backlight
 enable-scroll = false
 format =  <label>
-format-underline = #4bffdc
+# format-underline = #4bffdc
+format-underline = #FF6666
+# format-underline = #FF0033
 label = %percentage%%
 
 [module/date]
@@ -155,14 +161,15 @@ interval = 60
 date = %d/%m
 time = %H:%M
 label =  %date%  %time%
-;format-underline = #55aa55
-format-underline = #99CCFF
+# format-underline = #99CCFF
+format-underline = #B488FF
 format-padding = 1
 
 [module/volume]
 type = internal/volume
 format-volume = "<ramp-volume> <label-volume>"
-format-volume-underline = #9f78e1
+# format-volume-underline = #B488FF
+format-volume-underline = #99CCFF
 
 format-muted =  
 ramp-volume-0 = 
@@ -175,10 +182,14 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
+label-charging = %percentage%%
+label-discharging = %percentage%%
 format-charging = <animation-charging> <label-charging>
+# format-charging-underline = #f1ffad
 format-charging-underline = #ffb52a
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+# format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #ffb52a
 label-full = %percentage%
 
 ramp-capacity-0 = 
@@ -195,7 +206,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+# animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
 [settings]

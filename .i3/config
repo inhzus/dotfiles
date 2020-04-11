@@ -8,23 +8,23 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
+new_window pixel 0
 new_float normal
 
 # Hide borders
-hide_edge_borders none
-
+# hide_edge_borders none
+hide_edge_borders smart_no_gaps
 # change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
+# bindsym $mod+u border none
+# bindsym $mod+y border pixel 1
+# bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font xft:URWGothic-Book 11
 # font xft:Source Code Pro for Powerline 11
-font xft:Jetbrains Mono 13
-font pango:Jetbrains Mono 13
+font xft:Jetbrains Mono 0
+font pango:Jetbrains Mono 0
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -114,8 +114,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -142,6 +142,8 @@ bindsym $mod+Ctrl+Left workspace prev_on_output
 # focus left / right workspace
 bindsym $mod+Ctrl+Up focus output left
 bindsym $mod+Ctrl+Down focus output right
+bindsym $mod+a focus left
+bindsym $mod+s focus right
 bindsym $mod+z workspace prev_on_output
 bindsym $mod+x workspace next_on_output
 bindsym $mod+c focus output right
@@ -224,7 +226,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="flameshot"] floating enable
-for_window [instance="dropdown"] floating enable, resize set 1080px 960px, move position 801px 44px, move scratchpad
+for_window [instance="dropdown"] floating enable, resize set 1080px 960px, move position 781px 44px, move scratchpad
 for_window [instance="qutebrowser"] floating enable, resize set 1120px 960px, move position 801px 44px, move scratchpad
 for_window [class="Musixmatch"] floating enable
 for_window [class="TelegramDesktop"] floating enable
@@ -232,6 +234,7 @@ for_window [class="baidunetdisk"] floating enable
 for_window [title="Stats"] floating enable
 for_window [title="Custom Trail"] floating enable
 for_window [instance="qq"] floating enable
+for_window [class="Steam" title="Friends List"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -292,7 +295,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
@@ -338,6 +341,11 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+# bar {
+#    i3bar_command "i3bar -t"
+#    height 32
+#    position bottom
+#}
 #bar {
 #	i3bar_command i3bar
 ##status_command i3status
@@ -372,7 +380,7 @@ set_from_resource $term_color15    color15
 #    }
 #}
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -381,19 +389,53 @@ bindsym $mod+m bar mode toggle
 #  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 #  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 #  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-
 #  client.background       #2B2C2B
 
-#############################
+set $base00 #ffffff
+set $base01 #f0f0f0
+# set $base01 #bfbfbf
+set $base02 #c8c8fa
+set $base03 #969896
+set $base04 #e8e8e8
+set $base05 #333333
+set $base06 #ffffff
+set $base07 #ffffff
+set $base08 #ed6a43
+set $base09 #0086b3
+set $base0A #795da3
+set $base0B #183691
+set $base0C #183691
+set $base0D #795da3
+set $base0E #a71d5d
+set $base0F #333333
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base0D $base0D $base00 $base0D $base04
+client.focused_inactive $base05 $base01 $base05 $base03 $base01
+client.unfocused        $base05 $base00 $base05 $base01 $base05
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-# gaps inner 3
+# gaps inner 15
 # gaps outer 0
-gaps inner 20
-gaps outer 15
-gaps bottom 48
+# gaps inner 10
+# gaps vertical 17
+# gaps horizontal 38
+# exec i3-msg gaps inner all set 10
+# exec i3-msg gaps vertical all set 17
+# exec i3-msg gaps horizontal all set 38
+gaps inner 0
+gaps outer 0
+gaps bottom 27
+bindsym $mod+g exec "python $HOME/scripts/toggle_gaps.py"
+bindsym $mod+ctrl+g exec "i3-msg gaps inner current set 0 && i3-msg gaps outer current set 0"
+# gaps bottom 32
+# gaps bottom 47
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
@@ -401,6 +443,7 @@ gaps bottom 48
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
+# smart_gaps inverse_outer
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -410,7 +453,7 @@ smart_borders on
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -454,6 +497,7 @@ exec "sh $HOME/scripts/auto-clash.sh"
 # exec --no-startup-id "sh $HOME/scripts/volume.sh 0+"
 exec --no-startup-id "fish -c \"dual_screen\""
 exec --no-startup-id "sh $HOME/.config/polybar/launch.sh"
+exec --no-startup-id deadd-notification-center
 #exec /usr/bin/xrandr --output eDP1 --left-of DP1 --auto
 #exec /usr/bin/xrandr --output DP1 --left-of eDP1 --auto
 
@@ -478,11 +522,13 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec pm2 restart -a clash
-bindsym $mod+Shift+b exec --no-startup-id "sh $HOME/.config/polybar/launch.sh"
+bindsym $mod+Shift+b exec --no-startup-id "polybar-msg cmd restart"
+bindsym $mod+b exec "polybar-msg cmd toggle"
+bindsym $mod+Ctrl+m exec --no-startup-id "kill -s USR1 $(pidof deadd-notification-center)"
 
 # exec --no-startup-id termite --name dropdown
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown
-bindsym shift+$mod+grave exec --no-startup-id termite -c ~/.config/termite --name dropdown
+bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite --name dropdown
 bindsym shift+$mod+F2 exec --no-startup-id fish -c "sp qutebrowser"
 
 # bindsym shift+$mod+grave exec --no-startup-id kitty --name dropdown

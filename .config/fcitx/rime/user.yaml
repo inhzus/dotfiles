@@ -1,15 +1,15 @@
 var:
-  last_build_time: 1585124056
+  last_build_time: 1586582460
   option:
     ascii_punct: false
     full_shape: false
     simplification: true
   previously_selected_schema: double_pinyin
   schema_access_time:
-    double_pinyin: 1583411875
+    double_pinyin: 1586582517
     double_pinyin_mspy: 1571670771
     emoji: 1581926350
     jap_poly: 1581926969
-    kana: 1583411853
+    kana: 1586582513
     luna_pinyin_simp: 1581926351
     terra_pinyin: 1571670892
