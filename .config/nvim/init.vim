@@ -14,6 +14,7 @@ set cino=l1
 set clipboard=unnamedplus
 set fillchars+=vert:\ 
 highlight VertSplit cterm=NONE
+set termguicolors
 
 autocmd FileType c,cpp :set expandtab ts=2 sw=2 softtabstop=2
 autocmd FileType java :set expandtab ts=2 sw=4 softtabstop=4
@@ -34,6 +35,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " custom config
@@ -165,6 +167,14 @@ let g:colorizer_auto_map = 1
 
 " commentary
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType xdefaults setlocal commentstring=!\ %s
 
 " vim-signify
 set updatetime=100
+
+" dracula
+set runtimepath+=~/.config/nvim/plugged/dracula/
+color dracula
+" let &t_ut=''
+hi Normal guibg=NONE ctermbg=NONE
+

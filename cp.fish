@@ -31,3 +31,5 @@ test -d usr/share/alsa || mkdir -p usr/share/alsa
 cp /usr/share/alsa/alsa.conf usr/share/alsa/
 test -d etc || mkdir etc
 cp /etc/proxychains.conf /etc/graftcp-local.conf etc/
+cp ~/.Xresources .
+
