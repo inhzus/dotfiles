@@ -226,7 +226,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="flameshot"] floating enable
-for_window [title="dropdown"] floating enable, resize set 1080px 960px, move position 781px 44px, move scratchpad
+for_window [title="dropdown"] floating enable, resize set 1080px 1000px, move position 781px 40px, move scratchpad
 for_window [instance="qutebrowser"] floating enable, resize set 1120px 960px, move position 801px 44px, move scratchpad
 for_window [class="Musixmatch"] floating enable
 for_window [class="TelegramDesktop"] floating enable
@@ -527,7 +527,8 @@ bindsym $mod+b exec "polybar-msg cmd toggle"
 bindsym $mod+Ctrl+m exec --no-startup-id "kill -s USR1 $(pidof deadd-notification-center)"
 
 # bindsym shift+$mod+grave exec --no-startup-id kitty -T dropdown
-bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite -t dropdown
+# bindsym shift+$mod+grave exec --no-startup-id termite -c $HOME/.config/termite -t dropdown
+bindsym shift+$mod+grave exec --no-startup-id konsole --title dropdown --profile trans
 bindsym shift+$mod+F2 exec --no-startup-id fish -c "sp qutebrowser"
 
 bindsym $mod+grave [title="dropdown"] scratchpad show

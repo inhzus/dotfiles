@@ -9,6 +9,7 @@
 export ZSH="/home/suun/.oh-my-zsh"
 export TERM=xterm-256color
 
+alias sp="env http_proxy=$PROXY https_proxy=$PROXY ftp_proxy=$PROXY rsync_proxy=$PROXY all_proxy=$PROXY HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY FTP_PROXY=$PROXY RSYNC_PROXY=$PROXY ALL_PROXY=$PROXY"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

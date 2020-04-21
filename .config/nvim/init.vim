@@ -19,6 +19,7 @@ set termguicolors
 autocmd FileType c,cpp :set expandtab ts=2 sw=2 softtabstop=2
 autocmd FileType java :set expandtab ts=2 sw=4 softtabstop=4
 autocmd FileType yaml :set ts=2 sw=2 softtabstop=2
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 call plug#begin()
 
@@ -120,7 +121,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 :nmap <space>e :CocCommand explorer<CR>
 let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.currentFunctionSymbolAutoUpdate'] = 'true'
-" let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
+
+nmap <Leader>gs <Plug>(coc-git-chunkinfo)
 
 " vim-lsp-cxx-highlight
 let g:lsp_cxx_hl_use_text_props = 1
@@ -160,7 +162,7 @@ let g:lightline = {
       \ }
 
 " auto-pair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '<':'>'}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '\w\zs<':'>'}
 
 " Colorizer
 let g:colorizer_auto_map = 1
