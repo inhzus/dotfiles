@@ -1,4 +1,8 @@
 {
+  "latex.forwardSearch.executable": "mupdf",
+  "latex.build.args": [
+      "-xelatex"
+  ],
   "languageserver": {
     "ccls": {
       "command": "ccls",

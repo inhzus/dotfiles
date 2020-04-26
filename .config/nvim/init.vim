@@ -37,6 +37,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rhysd/git-messenger.vim'
 call plug#end()
 
 " custom config
@@ -180,3 +181,8 @@ color dracula
 " let &t_ut=''
 hi Normal guibg=NONE ctermbg=NONE
 
+" git-messenger
+nmap <Leader>gm <Plug>(git-messenger)
+
+" coc-texlab
+nmap <Leader>ll :call CocActionAsync('runCommand', 'latex.Build')<CR>

@@ -22,4 +22,7 @@ patch:
 #    - schema: ipa_xsampa           # X-SAMPA 國際音標
 #    - schema: emoji                # emoji 表情
     - schema: kana                  # kana 日文
+  key_binder:
+    bindings:
+      - {accept: Escape, toggle: ascii_mode, when: always}
 
