@@ -15,20 +15,19 @@ set clipboard=unnamedplus
 set fillchars+=vert:\ 
 highlight VertSplit cterm=NONE
 set termguicolors
+set smartcase
 
 autocmd FileType c,cpp :set expandtab ts=2 sw=2 softtabstop=2
 autocmd FileType java :set expandtab ts=2 sw=4 softtabstop=4
 autocmd FileType yaml :set ts=2 sw=2 softtabstop=2
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
 call plug#begin()
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'wakatime/vim-wakatime'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -38,6 +37,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rhysd/git-messenger.vim'
+Plug 'brglng/vim-im-select'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'voldikss/vim-translator'
 call plug#end()
 
 " custom config
@@ -46,6 +49,15 @@ nmap <A-1> 1gt<CR>
 nmap <A-2> 2gt<CR>
 nmap <A-3> 3gt<CR>
 tnoremap <Esc> <C-\><C-n>
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <expr> gj v:count ? 'gj' : 'j'
+nnoremap <expr> gk v:count ? 'gk' : 'k'
+vnoremap <expr> j v:count ? 'j' : 'gj'
+vnoremap <expr> k v:count ? 'k' : 'gk'
+vnoremap <expr> gj v:count ? 'gj' : 'j'
+vnoremap <expr> gk v:count ? 'gk' : 'k'
+inoremap <C-C> <Esc>
 
 " coc.nvim config
 set hidden
@@ -163,7 +175,9 @@ let g:lightline = {
       \ }
 
 " auto-pair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '\w\zs<':'>'}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+au FileType cpp let b:AutoPairs = AutoPairsDefine({'\w\zs<':'>'})
+au FileType tex let b:AutoPairs = AutoPairsDefine({'`': "'", '``':"''", '$':'$', '$$':'$$'})
 
 " Colorizer
 let g:colorizer_auto_map = 1
@@ -185,4 +199,15 @@ hi Normal guibg=NONE ctermbg=NONE
 nmap <Leader>gm <Plug>(git-messenger)
 
 " coc-texlab
-nmap <Leader>ll :call CocActionAsync('runCommand', 'latex.Build')<CR>
+nmap <Leader>ll :w<CR>:call CocActionAsync('runCommand', 'latex.Build')<CR>
+
+" vim-markdown
+let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+
+" vim-translator
+let g:translator_default_engines = ['youdao', 'google']
+nmap <silent> <Leader>tr <Plug>TranslateW
+vmap <silent> <Leader>tr <Plug>TranslateWV

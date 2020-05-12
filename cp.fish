@@ -25,4 +25,4 @@ cp /usr/share/alsa/alsa.conf usr/share/alsa/
 test -d etc || mkdir etc
 cp /etc/proxychains.conf /etc/graftcp-local.conf etc/
 cp ~/.Xresources .
-
+cp -r ~/.config/efm-langserver/ .config/

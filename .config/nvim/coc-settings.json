@@ -1,7 +1,8 @@
 {
   "latex.forwardSearch.executable": "mupdf",
   "latex.build.args": [
-      "-xelatex"
+      "-xelatex",
+      "-jobname=output/paper"
   ],
   "languageserver": {
     "ccls": {
@@ -34,6 +35,11 @@
         "usePlaceholders": true,
         "completeUnimported": true
       }
+    },
+    "efm": {
+        "command": "efm-langserver",
+        "args": [],
+        "filetypes": ["vim", "markdown"]
     }
   }
 }

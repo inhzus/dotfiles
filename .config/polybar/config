@@ -55,8 +55,8 @@ padding-left = 0
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = JetbrainsMono:size:12;1
-font-1 = NotoSansCJKSC:size:12;1
+font-0 = JetbrainsMono:size:12;2
+font-1 = NotoSansCJKSC:size:12;2
 font-2 = FontAwesome5Free:style=Solid:size=12;2
 font-3 = FontAwesome5Free:style=Regular:size=12;2
 font-4 = FontAwesome5Brands:style=Regular:size=12;2
@@ -64,7 +64,7 @@ font-4 = FontAwesome5Brands:style=Regular:size=12;2
 # modules-left = bspwm i3
 modules-left = i3
 modules-center = spotify
-modules-right = conn backlight volume battery date
+modules-right = text conn backlight volume battery date
 # modules-center = mpd
 # modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
@@ -97,6 +97,14 @@ interval = 1
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f ' {song}  {artist}'
 format-underline = #1db954
+
+[module/text]
+type = custom/ipc
+hook-0 = cat ~/.cache/poly-text
+initial = 1
+format =  <output>
+format-underline = #FF6666
+click-left = polybar-msg -p %pid% hook text 1
 
 [module/conn]
 type = custom/script
@@ -150,9 +158,7 @@ type = internal/backlight
 card = intel_backlight
 enable-scroll = false
 format =  <label>
-# format-underline = #4bffdc
-format-underline = #FF6666
-# format-underline = #FF0033
+format-underline = #FFA07A
 label = %percentage%%
 
 [module/date]
@@ -185,11 +191,9 @@ full-at = 98
 label-charging = %percentage%%
 label-discharging = %percentage%%
 format-charging = <animation-charging> <label-charging>
-# format-charging-underline = #f1ffad
-format-charging-underline = #ffb52a
+format-charging-underline = #FFB52A
 format-discharging = <ramp-capacity> <label-discharging>
-# format-discharging-underline = ${self.format-charging-underline}
-format-discharging-underline = #ffb52a
+format-discharging-underline = #FFB52A
 label-full = %percentage%
 
 ramp-capacity-0 = 
