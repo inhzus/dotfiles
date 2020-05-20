@@ -30,8 +30,9 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec terminal
-bindsym $mod+Return exec termite
+# bindsym $mod+Return exec termite
 # bindsym $mod+Return exec kitty
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
