@@ -1,0 +1,45 @@
+unbind ^b
+set -g prefix '^x'
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded"
+unbind '"'
+bind - splitw -v -c '#{pane_current_path}' # 垂直方向新增面板
+unbind %
+bind | splitw -h -c '#{pane_current_path}' # 水平方向新增面板
+set-option -g mouse on 
+set-window-option -g mode-keys vi
+# 绑定hjkl键为面板切换的上下左右键
+bind -r k select-pane -U # 绑定k为↑
+bind -r j select-pane -D # 绑定j为↓
+bind -r h select-pane -L # 绑定h为←
+bind -r l select-pane -R # 绑定l为→
+
+# bind-key -n Home send Escape "OH"
+# bind-key -n End send Escape "OF"
+# be sure to see note* below
+# set -g window-status-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'
+# set -g window-status-current-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'
+
+# status bar updates every 15s by default**, change to 1s here
+# (this step is optional - a lower latency might have negative battery/cpu usage impacts)
+# set -g status-interval 1
+set -g status-right ''
+
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "tmux save-buffer - | ssh suun@host.docker.internal pbcopy"
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xsel -i --clipboard"
+
+fmt="[#I]#{pane_current_command}/#{b:pane_current_path}"
+setw -g window-status-current-format $fmt
+setw -g window-status-format $fmt
+set -g status-left '#I-'
+
+set -g history-limit 999999999
+
+set -g base-index 1
+setw -g pane-base-index 1
+
+# neovim
+set-option -sg escape-time 10
+
+bind-key u send-keys "clear && tmux clear-history" \; send-keys "Enter"
+
+setw -g alternate-screen on
