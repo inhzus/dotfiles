@@ -10,5 +10,5 @@ case Darwin
     fish_add_path /opt/homebrew/bin $HOME/.local/bin /Applications/WezTerm.app/Contents/MacOS/
 end
 
-fish_add_path $HOME/.cargo/bin
+bind ctrl-c cancel-commandline
 
