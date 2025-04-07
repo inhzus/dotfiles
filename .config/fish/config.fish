@@ -10,5 +10,6 @@ case Darwin
     fish_add_path /opt/homebrew/bin $HOME/.local/bin /Applications/WezTerm.app/Contents/MacOS/
 end
 
+set -x VCPKG_ROOT $HOME/vcpkg
 bind ctrl-c cancel-commandline
 
