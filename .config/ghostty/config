@@ -1,0 +1,21 @@
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = true
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+font-family = Google Sans Code
+font-thicken = true
+font-thicken-strength = 128
+font-size = 14
+macos-titlebar-style = tabs
+macos-option-as-alt = left
+
+# theme = Dayfox
+# theme = Piatto Light
+# theme = GitLab Light
+# theme = Light Owl
+theme = Google Light
+

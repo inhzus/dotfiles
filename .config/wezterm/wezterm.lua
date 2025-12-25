@@ -2,10 +2,10 @@
 local wezterm = require 'wezterm'
 
 return {
-    animation_fps = 60,
+    animation_fps = 120,
     color_scheme = 'Google (light) (terminal.sexy)',
     font = wezterm.font(
-        'Maple Mono',
+        'Google Sans Code',
         { weight = 'DemiBold' }
     ),
     font_size = 14,
